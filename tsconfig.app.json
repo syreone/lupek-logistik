@@ -1,4 +1,4 @@
-n{
+{
   "compilerOptions": {
     "types": ["vitest/globals"],
     "target": "ES2020",
