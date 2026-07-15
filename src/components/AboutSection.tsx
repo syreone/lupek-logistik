@@ -1,4 +1,4 @@
-import { CheckCircle2, FileText, Download } from "lucide-react";
+﻿import { CheckCircle2, FileText, Download } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const AboutUs = () => {
@@ -30,7 +30,7 @@ const AboutUs = () => {
   ];
 
   return (
-      <section className="bg-background py-20 px-6 md:px-16 lg:px-24">
+      <section id="about" className="bg-background py-20 px-6 md:px-16 lg:px-24 scroll-mt-16">
         <div className="max-w-7xl mx-auto">
           {/* Main About Content */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
@@ -59,7 +59,7 @@ const AboutUs = () => {
                 <p className="text-quote-foreground italic text-lg leading-relaxed mb-6">
                   "{t.about.quote}"
                 </p>
-                <p className="text-label font-bold">— LUPEK LOGISTIK</p>
+                <p className="text-label font-bold">â€” LUPEK LOGISTIK</p>
               </div>
             </div>
           </div>

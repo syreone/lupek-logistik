@@ -8,7 +8,7 @@ const ServicesSection = () => {
   const { t } = useLanguage();
 
   return (
-    <section id="services" className="py-20 lg:py-28 bg-surface">
+    <section id="services" className="py-20 lg:py-28 bg-surface scroll-mt-16">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-14">
           <p className="text-industrial font-semibold text-sm uppercase tracking-widest mb-2">{t.services.label}</p>
