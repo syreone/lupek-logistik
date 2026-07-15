@@ -45,7 +45,7 @@ const mk: Translations = {
     label: "За нас", heading: "Доверлив партнер во транспортот од 2005",
     text: "ЛУПЕК ЛОГИСТИК е формирана во 2005 година. Веќе во следната година фирмата завзема угледно место во транспортниот бизнис во Македонија. Денес ЛУПЕК ЛОГИСТИК зафаќа значаен пазарен удел помеѓу транспортните компании во Македонија. Тоа е доказ дека само со професионален однос кон работата и со спроведување на прогресивни идеи може да се очекуваат позитивни резултати.",
     values: ["Инвестирање во квалификации и професионализам", "Инвестиции во нови технологии и иновации", "Проширување на транспортните услуги во нови земји", "Зголемување на пазарниот удел и задоволни клиенти"],
-    quote: `\u201EМногу не радува кога ќе не контактира нов коминтент но уште повеќе сме задоволни кога тој ќе остане да соработува со нас, што е потврда и за неговото задоволство од услугите кои ги добил во нашата фирма.\u201C`,
+    quote: `Многу не радува кога ќе не контактира нов коминтент но уште повеќе сме задоволни кога тој ќе остане да соработува со нас, што е потврда и за неговото задоволство од услугите кои ги добил во нашата фирма.`,
     quoteAuthor: "— ЛУПЕК ЛОГИСТИК",
   },
   why: {
@@ -107,7 +107,7 @@ const en: Translations = {
     label: "About Us", heading: "Trusted Transport Partner Since 2005",
     text: "LUPEK LOGISTIK was established in 2005. Already in the following year, the company took a prominent position in the transport business in Macedonia. Today, LUPEK LOGISTIK holds a significant market share among transport companies in Macedonia. This is proof that only with a professional approach to work and the implementation of progressive ideas can positive results be expected.",
     values: ["Investment in qualifications and professionalism", "Investment in new technologies and innovations", "Expansion of transport services to new countries", "Increasing market share and satisfied clients"],
-    quote: '"We are delighted when a new client contacts us, but we are even more satisfied when they continue to work with us, which confirms their satisfaction with the services they received from our company."',
+    quote: 'We are delighted when a new client contacts us, but we are even more satisfied when they continue to work with us, which confirms their satisfaction with the services they received from our company.',
     quoteAuthor: "— LUPEK LOGISTIK",
   },
   why: {

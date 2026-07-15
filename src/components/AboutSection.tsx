@@ -5,10 +5,10 @@ const AboutUs = () => {
   const { t } = useLanguage();
 
   const bulletPoints = [
-    t.about.bulletPoints?.[0] || "Investment in qualifications and professionalism",
-    t.about.bulletPoints?.[1] || "Investment in new technologies and innovations",
-    t.about.bulletPoints?.[2] || "Expansion of transport services to new countries",
-    t.about.bulletPoints?.[3] || "Increasing market share and satisfied clients",
+    t.about.values[0],
+    t.about.values[1],
+    t.about.values[2],
+    t.about.values[3],
   ];
 
   const certifications = [
@@ -42,7 +42,7 @@ const AboutUs = () => {
                 {t.about.heading}
               </h1>
               <p className="text-muted-foreground leading-relaxed mb-8">
-                {t.about.description}
+                {t.about.text}
               </p>
               <ul className="space-y-4">
                 {bulletPoints.map((point) => (

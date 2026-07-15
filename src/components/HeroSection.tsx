@@ -32,7 +32,7 @@ const HeroSection = () => {
               <Button asChild size="lg" className="bg-industrial hover:bg-industrial-light text-accent-foreground rounded-lg text-base px-8 gap-2">
                 <a href="#contact">{t.hero.ctaPrimary} <ArrowRight size={18} /></a>
               </Button>
-              <Button asChild variant="outline" size="lg" className="border-navy-foreground/30 text-navy-foreground hover:bg-navy-light/40 rounded-lg text-base px-8 gap-2">
+              <Button asChild variant="outline" size="lg" className="bg-transparent border-navy-foreground/30 text-navy-foreground hover:bg-navy-light/40 rounded-lg text-base px-8 gap-2">
                 <a href="#contact"><Phone size={18} /> {t.hero.ctaSecondary}</a>
               </Button>
             </div>
