@@ -59,7 +59,7 @@ const AboutUs = () => {
                 <p className="text-quote-foreground italic text-lg leading-relaxed mb-6">
                   "{t.about.quote}"
                 </p>
-                <p className="text-label font-bold">â€” LUPEK LOGISTIK</p>
+                <p className="text-label font-bold">- LUPEK LOGISTIK</p>
               </div>
             </div>
           </div>
