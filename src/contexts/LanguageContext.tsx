@@ -8,9 +8,9 @@ interface Translations {
     home: string; about: string; services: string; why: string; contact: string; cta: string };
   hero: { tagline: string; headline: string; headlineHighlight: string; sub: string; ctaPrimary: string; ctaSecondary: string };
   trust: { exp: string; expDesc: string; reliable: string; reliableDesc: string; intl: string; intlDesc: string };
-  services: { label: string; heading: string; learnMore: string; items: { title: string; desc: string }[] };
+  services: { label: string; heading: string; learnMore: string; viewAll: string; collapse: string; items: { title: string; desc: string }[] };
   about: { label: string; heading: string; text: string; values: string[]; quote: string; quoteAuthor: string };
-  why: { label: string; heading: string; sub: string; items: { title: string; desc: string }[] };
+  why: { label: string; heading: string; sub: string; viewAll: string; collapse: string; items: { title: string; desc: string }[] };
   contact: { label: string; heading: string; name: string; email: string; phone: string; subject: string; message: string; send: string; sending: string; toastTitle: string; toastDesc: string; phoneLbl: string; emailLbl: string; addressLbl: string; poBoxLbl: string; poBox:string; address: string };
   certifications: { label: string; heading: string; viewPdf: string; title1: string; subtitle1: string; title2: string; subtitle2: string; title3: string; subtitle3: string };
   footer: { desc: string; quickLinks: string; contactTitle: string; copyright: string; tagline: string };
@@ -31,7 +31,7 @@ const mk: Translations = {
   },
   trust: { exp: "20+ години искуство", expDesc: "Во транспортниот бизнис од 2005 година", reliable: "Доверлив транспорт", reliableDesc: "Професионален и сигурен пристап", intl: "Меѓународна логистика", intlDesc: "Широка мрежа низ целиот европски континент" },
   services: {
-    label: "Наши услуги", heading: "Комплетни логистички решенија", learnMore: "Дознајте повеќе →",
+    label: "Наши услуги", heading: "Комплетни логистички решенија", learnMore: "Дознајте повеќе", viewAll: "Прикажи ги сите услуги", collapse: "Прикажи помалку",
     items: [
       { title: "Друмски транспорт", desc: "Комплетен и парцијален товар (FTL/LTL) низ целиот европски континент со модерна флота." },
       { title: "Поморски транспорт", desc: "Организација на поморски превоз на стоки со контејнери до и од сите светски пристаништа." },
@@ -49,7 +49,7 @@ const mk: Translations = {
     quoteAuthor: "— ЛУПЕК ЛОГИСТИК",
   },
   why: {
-    label: "Зошто ние", heading: "Зошто ЛУПЕК ЛОГИСТИК?", sub: "ЛУПЕК ЛОГИСТИК е млада фирма која сака да се развива и расте. Обратете ни се со полна доверба.",
+    label: "Зошто ние", heading: "Зошто ЛУПЕК ЛОГИСТИК?", sub: "ЛУПЕК ЛОГИСТИК е млада фирма која сака да се развива и расте. Обратете ни се со полна доверба.", viewAll: "Покажи ги сите придобивки", collapse: "Покажи помалку",
     items: [
       { title: "Амбициозност", desc: "Доволно сме амбициозни да ги оствариме нашите цели и да го прошириме знаењето." },
       { title: "Посветеност на клиентот", desc: "Задоволни сме со работата само кога ќе го исполниме очекувањето на секој клиент." },
@@ -93,7 +93,7 @@ const en: Translations = {
   },
   trust: { exp: "20+ Years Experience", expDesc: "In the transport business since 2005", reliable: "Reliable Transport", reliableDesc: "Professional and secure approach", intl: "International Logistics", intlDesc: "Wide network across Europe" },
   services: {
-    label: "Our Services", heading: "Complete Logistics Solutions", learnMore: "Learn More →",
+    label: "Our Services", heading: "Complete Logistics Solutions", learnMore: "Learn More", viewAll: "View All Services", collapse: "Show Less",
     items: [
       { title: "Road Transport", desc: "Full and partial loads (FTL/LTL) across the entire European continent with a modern fleet." },
       { title: "Maritime Transport", desc: "Organization of maritime freight transport with containers to and from all world ports." },
@@ -111,7 +111,7 @@ const en: Translations = {
     quoteAuthor: "— LUPEK LOGISTIK",
   },
   why: {
-    label: "Why Us", heading: "Why LUPEK LOGISTIK?", sub: "LUPEK LOGISTIK is a young company that wants to develop and grow. Contact us with full confidence.",
+    label: "Why Us", heading: "Why LUPEK LOGISTIK?", sub: "LUPEK LOGISTIK is a young company that wants to develop and grow. Contact us with full confidence.", viewAll: "View All Benefits", collapse: "Show Less",
     items: [
       { title: "Ambition", desc: "We are ambitious enough to achieve our goals and expand our knowledge." },
       { title: "Client Dedication", desc: "We are satisfied with our work only when we meet the expectations of every client." },

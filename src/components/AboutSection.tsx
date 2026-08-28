@@ -1,8 +1,13 @@
 ﻿import { CheckCircle2, FileText, Download } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useReveal } from "@/hooks/use-reveal";
+import { cn } from "@/lib/utils";
+import TiltCard from "@/components/TiltCard";
 
 const AboutUs = () => {
   const { t } = useLanguage();
+  const { ref: leftRef, visible: leftVisible } = useReveal<HTMLDivElement>();
+  const { ref: certRef, visible: certVisible } = useReveal<HTMLDivElement>();
 
   const bulletPoints = [
     t.about.values[0],
@@ -34,7 +39,7 @@ const AboutUs = () => {
         <div className="max-w-7xl mx-auto">
           {/* Main About Content */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
-            <div>
+            <div ref={leftRef} className={cn("reveal", leftVisible && "is-visible")}>
               <p className="text-label font-semibold tracking-widest uppercase text-sm mb-3">
                 {t.about.label}
               </p>
@@ -72,25 +77,27 @@ const AboutUs = () => {
             <h2 className="text-3xl font-bold text-foreground mb-8">
               {t.certifications.heading}
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div ref={certRef} className={cn("grid grid-cols-1 md:grid-cols-3 gap-6", "reveal-stagger", certVisible && "is-visible")}>
               {certifications.map((cert) => (
-                  <a
-                      key={cert.file}
+                  <TiltCard key={cert.file} maxTilt={6}>
+                    <a
                       href={cert.file}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group bg-card border border-border rounded-xl p-6 flex flex-col items-center text-center hover:shadow-lg hover:border-label transition-all duration-300"
-                  >
-                    <div className="w-14 h-14 rounded-full bg-muted flex items-center justify-center mb-4 group-hover:bg-label/10 transition-colors">
-                      <FileText className="w-7 h-7 text-label" />
-                    </div>
-                    <h3 className="font-semibold text-foreground mb-1">{cert.title}</h3>
-                    <p className="text-muted-foreground text-sm mb-4">{cert.subtitle}</p>
-                    <span className="inline-flex items-center gap-2 text-label font-medium text-sm group-hover:underline">
-                  <Download className="w-4 h-4" />
-                      {t.certifications.viewPdf}
-                </span>
-                  </a>
+                      className="group h-full relative flex flex-col items-center text-center bg-card border border-border rounded-xl p-6 overflow-hidden transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-navy/10 hover:border-industrial/40"
+                    >
+                      <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-industrial-light to-industrial scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100" />
+                      <div className="w-14 h-14 rounded-full bg-muted flex items-center justify-center mb-4 transition-all duration-300 group-hover:bg-industrial/10 group-hover:scale-110">
+                        <FileText className="w-7 h-7 text-label group-hover:text-industrial transition-colors duration-300" />
+                      </div>
+                      <h3 className="font-semibold text-foreground mb-1 group-hover:text-industrial transition-colors duration-300">{cert.title}</h3>
+                      <p className="text-muted-foreground text-sm mb-4">{cert.subtitle}</p>
+                      <span className="inline-flex items-center gap-2 text-label font-medium text-sm group-hover:underline">
+                        <Download className="w-4 h-4" />
+                        {t.certifications.viewPdf}
+                      </span>
+                    </a>
+                  </TiltCard>
               ))}
             </div>
           </div>

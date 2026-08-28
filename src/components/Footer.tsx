@@ -1,9 +1,12 @@
 import { Phone, Mail, MapPin, Box } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import logo from "@/assets/lupek-logo.png";
+import { useReveal } from "@/hooks/use-reveal";
+import { cn } from "@/lib/utils";
 
 const Footer = () => {
   const { t } = useLanguage();
+  const { ref, visible } = useReveal<HTMLDivElement>();
 
   const links = [
     { label: t.nav.home, href: "#hero" },
@@ -16,7 +19,7 @@ const Footer = () => {
   return (
       <footer className="bg-navy text-navy-foreground">
         <div className="container mx-auto px-4 lg:px-8 py-14">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+          <div ref={ref} className={cn("grid grid-cols-1 md:grid-cols-3 gap-10 reveal-stagger", visible && "is-visible")}>
             {/* Logo Section */}
             <div className="space-y-4">
               {/* Option 1: With brightness/invert (white logo) */}
@@ -55,8 +58,9 @@ const Footer = () => {
                     <li key={l.href}>
                       <a
                           href={l.href}
-                          className="text-navy-foreground/70 hover:text-industrial-light transition-colors"
+                          className="group inline-flex items-center gap-2 text-navy-foreground/70 hover:text-industrial-light transition-all duration-200 hover:translate-x-1"
                       >
+                        <span className="w-0 h-px bg-industrial-light transition-all duration-300 group-hover:w-3" />
                         {l.label}
                       </a>
                     </li>

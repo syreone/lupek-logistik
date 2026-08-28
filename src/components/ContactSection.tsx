@@ -2,14 +2,17 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Phone, Mail, MapPin, Send, Box } from "lucide-react";
+import { Phone, Mail, MapPin, Send, Box, Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useReveal } from "@/hooks/use-reveal";
+import { cn } from "@/lib/utils";
 
 const ContactSection = () => {
   const { toast } = useToast();
   const { t } = useLanguage();
   const [sending, setSending] = useState(false);
+  const { ref: infoRef, visible: infoVisible } = useReveal<HTMLDivElement>();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -74,31 +77,29 @@ const ContactSection = () => {
               <Button
                   type="submit"
                   disabled={sending}
-                  className="bg-industrial hover:bg-industrial-light text-accent-foreground rounded-lg w-full gap-2"
+                  className="bg-industrial hover:bg-industrial-light text-accent-foreground rounded-lg w-full gap-2 transition-all duration-300 hover:shadow-lg hover:shadow-industrial/20 active:scale-[0.98]"
               >
-                <Send size={18} />
+                {sending ? <Loader2 size={18} className="animate-spin" /> : <Send size={18} />}
                 {sending ? t.contact.sending : t.contact.send}
               </Button>
             </form>
 
             {/* Contact Info + Map */}
-            <div className="space-y-8">
+            <div className="space-y-8 w-full max-w-md mx-auto lg:mx-0" ref={infoRef}>
               {/* Contact Info */}
-              <div className="space-y-5">
+              <div className={cn("space-y-5 reveal-stagger", infoVisible && "is-visible")}>
                 {contactItems.map((c) => (
                     <a
                         key={c.label}
                         href={c.href}
-                        className="flex items-start gap-4 group cursor-pointer transition-all duration-200 hover:opacity-80"
+                        className="group flex items-start gap-4 cursor-pointer transition-all duration-200 hover:opacity-90 p-3 -m-3 rounded-xl hover:bg-surface"
                     >
-                      <div className="w-11 h-11 rounded-lg bg-industrial/10 flex items-center justify-center flex-shrink-0 group-hover:bg-industrial/20 transition-colors duration-200">
-                        <c.icon className="text-industrial" size={20} />
+                      <div className="w-11 h-11 rounded-lg bg-industrial/10 flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:bg-industrial group-hover:shadow-lg group-hover:shadow-industrial/30">
+                        <c.icon className="text-industrial transition-all duration-300 group-hover:text-white group-hover:scale-110" size={20} />
                       </div>
                       <div>
                         <p className="text-sm text-muted-foreground">{c.label}</p>
-                        <p className="font-medium text-foreground group-hover:text-industrial transition-colors duration-200">
-                          {c.value}
-                        </p>
+                        <p className="font-medium text-foreground group-hover:text-industrial transition-colors duration-200">{c.value}</p>
                       </div>
                     </a>
                 ))}

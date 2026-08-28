@@ -2,6 +2,8 @@ import { useState } from "react";
 import { ChevronDown, MapPin, Briefcase, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useReveal } from "@/hooks/use-reveal";
+import { cn } from "@/lib/utils";
 
 interface Job {
   id: string;
@@ -22,6 +24,8 @@ interface Job {
 const CareersSection = () => {
   const { lang } = useLanguage();
   const [expandedId, setExpandedId] = useState<string | null>(null);
+  const { ref: headerRef, visible: headerVisible } = useReveal<HTMLDivElement>();
+  const { ref: listRef, visible: listVisible } = useReveal<HTMLDivElement>();
 
   const jobs: Job[] = [
     {
@@ -86,7 +90,7 @@ const CareersSection = () => {
   return (
       <section id="careers" className="py-20 lg:py-28 bg-background scroll-mt-16">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-14">
+          <div ref={headerRef} className={cn("text-center max-w-2xl mx-auto mb-14 reveal", headerVisible && "is-visible")}>
             <p className="text-industrial font-semibold text-sm uppercase tracking-widest mb-2">
               {currentLang.label}
             </p>
@@ -99,7 +103,7 @@ const CareersSection = () => {
           </div>
 
           {currentJobs.length > 0 ? (
-              <div className="max-w-3xl mx-auto space-y-4">
+              <div ref={listRef} className={cn("max-w-3xl mx-auto space-y-4 reveal-stagger", listVisible && "is-visible")}>
                 {currentJobs.map((job) => {
                   const isExpanded = expandedId === job.id;
                   const title = lang === "mk" ? job.titleMk : job.titleEn;
@@ -112,12 +116,18 @@ const CareersSection = () => {
                   return (
                       <div
                           key={job.id}
-                          className="bg-card rounded-xl border border-border overflow-hidden transition-all duration-300 hover:shadow-lg"
+                          className={cn(
+                            "group bg-card rounded-xl border border-border overflow-hidden transition-all duration-300",
+                            isExpanded
+                              ? "shadow-xl shadow-navy/10 border-industrial/40"
+                              : "hover:shadow-lg hover:shadow-navy/5 hover:border-industrial/30 hover:-translate-y-0.5",
+                          )}
                       >
                         {/* Job Header */}
                         <button
                             onClick={() => toggleExpand(job.id)}
                             className="w-full px-7 py-6 flex items-start justify-between hover:bg-surface/50 transition-colors"
+                            aria-expanded={isExpanded}
                         >
                           <div className="flex-1 text-left space-y-3">
                             <h3 className="font-display font-semibold text-lg text-foreground">{title}</h3>
