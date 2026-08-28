@@ -76,8 +76,6 @@ const mk: Translations = {
   },
   footer: { desc: "Професионални транспортни и логистички услуги од 2005 година. Вашиот доверлив партнер за меѓународен и домашен транспорт.", quickLinks: "Брзи линкови", contactTitle: "Контакт", copyright: "Сите права задржани.", tagline: "Професионален транспорт и логистика" },
 };
-
-// @ts-ignore
 const en: Translations = {
   nav: {
     home: "Home", about: "About", services: "Services", why: "Why Us", contact: "Contact", cta: "Request a Quote",
