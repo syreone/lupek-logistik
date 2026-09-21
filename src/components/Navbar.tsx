@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { LanguageFlag } from "@/components/Flags";
 import { useActiveSection } from "@/hooks/use-active-section";
-import logo from "@/assets/lupek-logo.png";
 import { cn } from "@/lib/utils";
 
 const Navbar = () => {
@@ -70,16 +69,7 @@ const Navbar = () => {
         )}
       >
         <div className={cn("container mx-auto flex items-center justify-between px-4 lg:px-8 transition-all duration-500", scrolled ? "h-14" : "h-16")}>
-          <a href="#hero" className="flex items-center group" onClick={(e) => smoothScroll(e, "#hero")} aria-label="Lupek Logistik - home">
-            <img
-              src={logo}
-              alt="Lupek Logistik"
-              className={cn(
-                "w-auto object-contain transition-all duration-500 group-hover:scale-105",
-                scrolled ? "h-10 md:h-12" : "h-12 md:h-14",
-              )}
-            />
-          </a>
+          <a href="#hero" className="flex items-center group" onClick={(e) => smoothScroll(e, "#hero")} aria-label="Lupek Logistik - home" />
 
           {/* Desktop */}
           <div className="hidden md:flex items-center gap-8">
